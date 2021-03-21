@@ -1,3 +1,13 @@
+import math
+
+def somatorio(conjunto):
+    soma = 0
+
+    for x in conjunto:
+        soma += x
+
+    return soma
+
 def media(conjunto, count_num_elementos):
     soma = 0
 
@@ -28,8 +38,16 @@ def moda(conjunto, count_num_elementos):
 
     return moda;
     
-def desvio_padrao():
-    return NULL
+def desvio_padrao(conjunto, count_num_elementos):
+    conjunto_quadrado = [i**2 for i in conjunto]
+    
+    sum = somatorio(conjunto)
+    sum_quadrado = somatorio(conjunto_quadrado)
+
+    desvio_padrao = ((count_num_elementos * sum_quadrado) - (sum ** 2)) / (count_num_elementos * (count_num_elementos - 1))
+
+    return math.sqrt(desvio_padrao)
+
 
 def coeficiente_variacao():
     return NULL
@@ -39,12 +57,12 @@ def main():
     count_num_elementos = int(input('Digite a quantidade de elementos do conjunto: ')) 
 
     for i in range(count_num_elementos):
-        conjunto.insert(len(conjunto) + 1, float(input('Digite um valor para o conjunto: ')))
+        conjunto.insert(len(conjunto) + 1, int(input('Digite um valor para o conjunto: ')))
 
     print('Media:' , float("{:.2f}".format(media(conjunto,count_num_elementos))))
     print('Mediana:' , float("{:.2f}".format(mediana(conjunto,count_num_elementos))))
     #print('Moda:' , float(moda(conjunto,count_num_elementos)))
-    #print('S: ' + desvio_padrao)
-    #print('CV: ' + coeficiente_variacao)
+    print('S:' , float("{:.2f}".format(desvio_padrao(conjunto,count_num_elementos))))
+    print('CV: ' + coeficiente_variacao)
 
 main()
