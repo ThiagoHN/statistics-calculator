@@ -49,8 +49,11 @@ def desvio_padrao(conjunto, count_num_elementos):
     return math.sqrt(desvio_padrao)
 
 
-def coeficiente_variacao():
-    return NULL
+def coeficiente_variacao(media_resp, desvio_padrao_resp):
+    CV = (desvio_padrao_resp / media_resp) * 100
+    
+    return CV
+
 
 def main():
     conjunto = []
@@ -59,10 +62,15 @@ def main():
     for i in range(count_num_elementos):
         conjunto.insert(len(conjunto) + 1, int(input('Digite um valor para o conjunto: ')))
 
-    print('Media:' , float("{:.2f}".format(media(conjunto,count_num_elementos))))
-    print('Mediana:' , float("{:.2f}".format(mediana(conjunto,count_num_elementos))))
+    media_resp = media(conjunto,count_num_elementos)
+    mediana_resp = mediana(conjunto,count_num_elementos)
+    desvio_padrao_resp = desvio_padrao(conjunto,count_num_elementos)
+    coeficiente_variacao_resp = coeficiente_variacao(media_resp, desvio_padrao_resp)
+
+    print('Media:' , float("{:.2f}".format(media_resp)))
+    print('Mediana:' , float("{:.2f}".format(mediana_resp)))
     #print('Moda:' , float(moda(conjunto,count_num_elementos)))
-    print('S:' , float("{:.2f}".format(desvio_padrao(conjunto,count_num_elementos))))
-    print('CV: ' + coeficiente_variacao)
+    print('S:' , float("{:.2f}".format(desvio_padrao_resp)))
+    print('CV:' , float("{:.2f}".format(coeficiente_variacao_resp)))
 
 main()
