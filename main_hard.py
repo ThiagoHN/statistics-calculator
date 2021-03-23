@@ -17,7 +17,7 @@ def media(conjunto, count_num_elementos):
     return (soma/count_num_elementos)
 
 def mediana(conjunto, count_num_elementos):
-    pos_meio = int(count_num_elementos/2)
+    pos_meio = int(count_num_elementos/2) - 1
     mediana = conjunto[pos_meio]
     
     if (count_num_elementos % 2 == 0):
