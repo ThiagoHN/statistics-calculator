@@ -6,3 +6,7 @@ As seguintes funções foram implementadas no código:
 * Mediana em um ponto
 * Desvio padrão em um ponto
 * Coeficiente de variação em um ponto
+
+## ATENÇÃO
+
+Outras funções serão implementadas...
